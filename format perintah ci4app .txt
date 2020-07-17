@@ -1,0 +1,15 @@
+1. composer create-project codeigniter4/appstarter ci4app --no-dev
+2. composer validate 
+3. composer install --prefer-dist --no-progress --no-suggest
+4. composer fund
+
+
+https://vscode-auth.github.com/?browser_session_id=6bb37fa9c8aae4a111262431c808200614b7d62d&code=5ccaa7183c13166bcaec&state=GOr71oPOBAupLznKnmiZceocE1U%2FeyJhdXRoU2VydmVyIjoiaHR0cHM6Ly9naXRodWIuY29tIiwiY2FsbGJhY2tVcmkiOiJ2c2NvZGU6Ly92c2NvZGUuZ2l0aHViLWF1dGhlbnRpY2F0aW9uL2RpZC1hdXRoZW50aWNhdGUlM0Z3aW5kb3dJZCUzRDEiLCJyZXNwb25zZVR5cGUiOiJjb2RlIiwic3RhdGUiOiJiNDU0OTJhZi0yM2ExLTRjOTUtOGJlYy1lZjU2ZWEyMWJhYTciLCJpZCI6Ijo6ZmZmZjoxMC4zMy4yNTAuMTE3In0
+
+
+vscode://vscode.github-authentication/did-authenticate?windowId=1&code=5ccaa7183c13166bcaec&state=b45492af-23a1-4c95-8bec-ef56ea21baa7
+
+Copy the token.
+Switch back to VS code.
+Click Signing in to github.com... in the status bar.
+Paste the token and hit enter.
