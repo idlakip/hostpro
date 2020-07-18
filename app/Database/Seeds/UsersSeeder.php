@@ -34,14 +34,14 @@ class UsersSeeder extends \CodeIgniter\Database\Seeder
     // generate data by accessing properties
     // echo $faker->name;
     $faker = \Faker\Factory::create('id_ID');
-    for ($i = 0; $i < 150; $i++) {
+    for ($i = 0; $i < 100; $i++) {
       $data = [
         'nama'            => $faker->name,
         'username'        => $faker->userName,
         'email'           => $faker->freeEmail,
-        'password'        => $faker->regexify('[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}'), // sm0@y8k96a.ej
+        'password'        => $faker->password,
         'alamat'          => $faker->address,
-        'level'           => $faker->randomNumber(1),
+        'level'           => $faker->optional(1, 2)->randomDigit(1),
         'created_at'      => Time::createFromTimestamp($faker->unixTime()),
         'updated_at'      => Time::now(),
       ];
