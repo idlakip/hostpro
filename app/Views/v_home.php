@@ -31,7 +31,7 @@
                   icon: iconkantor
                 }).addTo(mymap)
                 .bindPopup("<b><?= $value['nama_kantor'] ?></b><br/>" +
-                  '<img src="<?= base_url('foto/' . $value['photo']); ?>" width="100px" height="100px"><br/>' +
+                  '<img src="<?= base_url('public/foto/' . $value['photo']); ?>" width="100px" height="100px"><br/>' +
                   "No. Telp. : <?= $value['no_telp'] ?>"
                 );
             <?php } ?>

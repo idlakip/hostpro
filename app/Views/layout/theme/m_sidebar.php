@@ -51,7 +51,7 @@
               <i class="nav-icon fas fa-home"></i>
               <p>
                 Home
-                <span class="right badge badge-danger">New</span>
+                <span class="right badge badge-danger">Proses</span>
               </p>
             </a>
           </li>
@@ -60,7 +60,7 @@
               <i class="nav-icon fas fa-user"></i>
               <p>
                 About
-                <!-- <span class="right badge badge-danger">New</span> -->
+                <span class="right badge badge-danger">Proses</span>
               </p>
             </a>
           </li>
@@ -69,7 +69,7 @@
               <i class="nav-icon fas fa-table"></i>
               <p>
                 Tabel
-                <!-- <span class="right badge badge-danger">New</span> -->
+                <span class="right badge badge-danger">Proses</span>
               </p>
             </a>
           </li>
@@ -78,7 +78,7 @@
               <i class="nav-icon fas fa-map"></i>
               <p>
                 Map
-                <!-- <span class="right badge badge-danger">New</span> -->
+                <span class="right badge badge-danger">News</span>
               </p>
             </a>
           </li>
@@ -87,7 +87,16 @@
               <i class="nav-icon fas fa-chart-line"></i>
               <p>
                 Chart
-                <!-- <span class="right badge badge-danger">New</span> -->
+                <span class="right badge badge-danger">Proses</span>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?= base_url(); ?>/kantor" class="nav-link">
+              <i class="nav-icon fas fa-hotel"></i>
+              <p>
+                Kantor
+                <span class="right badge badge-danger">New</span>
               </p>
             </a>
           </li>

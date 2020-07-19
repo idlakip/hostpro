@@ -35,26 +35,26 @@
           var iconkantor = L.icon({
             iconUrl: '<?= base_url('icon/1104720.svg'); ?>',
             iconSize: [38, 65],
-            shadowSize: [50, 64],
-            iconAnchor: [22, 94],
-            shadowAnchor: [4, 62],
-            popupAnchor: [-3, -76]
+            // shadowSize: [50, 64],
+            // iconAnchor: [22, 94],
+            // shadowAnchor: [4, 62],
+            // popupAnchor: [-3, -76]
           });
           <?php foreach ($kantor as $key => $value) { ?>
             L.marker([<?= $value['latitude']; ?>, <?= $value['longitude']; ?>], {
                 icon: iconkantor
               }).addTo(mymap)
               .bindPopup("<b><?= $value['nama_kantor'] ?></b><br/>" +
-                '<img src="<?= base_url('foto/' . $value['photo']); ?>" width="100px" height="100px"><br/>' +
-                "No. Telp. : <?= $value['no_telp'] ?>"
+                '<img src="<?= base_url('foto/' . $value['photo']); ?>" class="photo"><br/>' +
+                "<b></b>Telp. : <?= $value['no_telp'] ?></b>"
               );
           <?php } ?>
         </script>
       </div>
       <!-- /.card-body -->
-      <div class="card-footer">
+      <!-- <div class="card-footer">
         Footer
-      </div>
+      </div> -->
       <!-- /.card-footer-->
     </div>
     <!-- /.card -->

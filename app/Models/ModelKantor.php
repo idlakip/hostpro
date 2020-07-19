@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class M_kantor extends Model
+class ModelKantor extends Model
 {
   public function get_all_data()
   {

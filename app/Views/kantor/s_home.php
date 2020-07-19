@@ -1,4 +1,4 @@
-<?= $this->extend('layout/template'); ?>
+<?= $this->extend('layout/data_map'); ?>
 <?= $this->section('content'); ?>
 <!-- Main content -->
 <section class="content">

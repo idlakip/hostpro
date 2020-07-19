@@ -1,4 +1,4 @@
-<?= $this->extend('layout/template'); ?>
+<?= $this->extend('layout/data_map'); ?>
 <?= $this->section('content'); ?>
 <!-- Main content -->
 <section class="content">
@@ -15,8 +15,8 @@
 
           </div>
 
-        </div><!-- /.card -->
-      </div><!-- /.col -->
+        </div>
+      </div>
     </div>
     <div class="col-sm-5">
       <div class="card card-primary">
@@ -80,14 +80,19 @@
             <!-- <input type="text" class="form-control form-control-sm" id="description" name="description" placeholder="description kantor"> -->
             <textarea class="form-control form-control-sm" id="description" name="description" placeholder="Description kantor"></textarea>
           </div>
+
           <div class="form-group">
-            <label for="photo">Foto Kantor</label>
+            <label for="photo" class="col-sm-4 col-form-label">Foto Kantor</label>
+            <div class="col-sm-4">
+              <img src="/foto/default.jpg" class="img-thumbnail img-preview">
+            </div>
             <div class="input-group">
               <div class="custom-file">
-                <input type="file" class="custom-file-input" id="photo" name="photo">
-                <label class="custom-file-label" for="photo">Choose file</label>
+                <input type="file" class="custom-file-input" id="photo" name="photo" onchange="previewImg()">
+                <label class="custom-file-label" for="photo">Pilih Gambar</label>
               </div>
             </div>
+
 
             <div class="card-footer">
               <button type="submit" class="btn btn-primary">Submit</button>
@@ -96,8 +101,8 @@
 
           <?php echo form_close(); ?>
 
-        </div><!-- /.card -->
-      </div><!-- /.col -->
+        </div>
+      </div>
     </div>
 
 
@@ -144,8 +149,6 @@
 
       map.addLayer(marker);
     </script>
-
-
 
 
 

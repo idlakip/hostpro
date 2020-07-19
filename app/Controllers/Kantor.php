@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
-use App\Models\M_kantor;
+use App\Models\ModelKantor;
 
 class Kantor extends BaseController
 {
@@ -11,14 +11,14 @@ class Kantor extends BaseController
   public function __construct()
   {
     helper('form');
-    $this->M_kantor = new M_kantor();
+    $this->ModelKantor = new ModelKantor();
   }
 
   public function index()
   {
     $data = [
       'title' => 'Kantor',
-      'kantor' => $this->M_kantor->get_all_data(),
+      'kantor' => $this->ModelKantor->get_all_data(),
       //'isi' => 's_home', // s_ = template & v_ = v_template
     ];
     return view('kantor/s_home', $data);
@@ -89,9 +89,12 @@ class Kantor extends BaseController
       ],
       'photo' => [
         'label' => 'Foto Kantor',
-        'rules' => 'uploaded[photo]|mime_in[photo,image/jpg,image/jpeg,image/png,image/gif]|max_size[photo,1500]',
+        'rules' => 'mime_in[photo,image/jpg,image/jpeg,image/png,image/gif]|max_size[photo,1500]',
         'errors' => [
-          'required' => '{field} wajib diisi'
+          // 'uploaded' => '{field} wajib diisi',
+          'mime_in' => '{field} yang dimasukkan bukan format yang diizinkan',
+          'max_size' => '{field} yang dimasukkan max: 1024kb'
+
         ]
       ],
     ]);
@@ -100,8 +103,14 @@ class Kantor extends BaseController
       session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
       return redirect()->to(base_url('kantor/add'));
     } else {
-      $image = $this->request->getFile('photo');
-      $name = $image->getRandomName();
+      $filePhoto = $this->request->getFile('photo');
+      if ($filePhoto->getError() == 4) {
+        $namaPhoto = 'default.jpg';
+      } else {
+        $namaPhoto = $filePhoto->getRandomName();
+        $filePhoto->move('foto', $namaPhoto);
+      }
+      // $name = $filePhoto->getRandomName();
       $data = [
         'nama_kantor' => $this->request->getPost('nama_kantor'),
         'no_telp' => $this->request->getPost('no_telp'),
@@ -110,10 +119,10 @@ class Kantor extends BaseController
         'latitude' => $this->request->getPost('latitude'),
         'longitude' => $this->request->getPost('longitude'),
         'description' => $this->request->getPost('description'),
-        'photo' => $name
+        'photo' => $namaPhoto
       ];
-      $image->move(ROOTPATH . 'foto', $name);
-      $this->M_kantor->insert_data($data);
+      // $filePhoto->move(ROOTPATH . 'public/foto', $name);
+      $this->ModelKantor->insert_data($data);
       session()->setFlashdata('success', 'Data berhasil ditambahkan');
       return redirect()->to(base_url('kantor'));
     }
@@ -124,7 +133,7 @@ class Kantor extends BaseController
   {
     $data = [
       'title' => 'Edit Kantor',
-      'kantor' => $this->M_kantor->detail($id_kantor)
+      'kantor' => $this->ModelKantor->detail($id_kantor)
       //'isi' => 's_home', // s_ = template & v_ = v_template
     ];
     return view('kantor/s_edit_kantor', $data);
@@ -185,9 +194,11 @@ class Kantor extends BaseController
       ],
       'photo' => [
         'label' => 'Foto Kantor',
-        'rules' => 'uploaded[photo]|mime_in[photo,image/jpg,image/jpeg,image/png,image/gif]|max_size[photo,1500]',
+        'rules' => 'mime_in[photo,image/jpg,image/jpeg,image/png,image/gif]|max_size[photo,1500]',
         'errors' => [
-          'required' => '{field} wajib diisi'
+          'required' => '{field} wajib diisi',
+          'mime_in' => '{field} yang dimasukkan bukan format yang diizinkan',
+          'max_size' => '{field} yang dimasukkan max: 1024kb'
         ]
       ],
     ]);
@@ -196,9 +207,19 @@ class Kantor extends BaseController
       session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
       return redirect()->to(base_url('kantor/edit/' . $id_kantor));
     } else {
-      $image = $this->request->getFile('photo');
-      $name = $image->getRandomName();
+      $filePhoto = $this->request->getFile('photo');
+      // darisini
+      if ($filePhoto->getError() == 4) {
+        $namaPhoto = $this->request->getVar('photoLama');
+        // $namaPhoto = 'default.jpg';
+      } else {
+        $namaPhoto = $filePhoto->getRandomName();
+        $filePhoto->move('foto', $namaPhoto);
+        // unlink('foto/' . $this->request->getVar('photoLama'));
+      } // sampai disini
+      // $name = $image->getRandomName();
       $data = [
+        'id_kantor' => $id_kantor,
         'nama_kantor' => $this->request->getPost('nama_kantor'),
         'no_telp' => $this->request->getPost('no_telp'),
         'alamat' => $this->request->getPost('alamat'),
@@ -206,10 +227,10 @@ class Kantor extends BaseController
         'latitude' => $this->request->getPost('latitude'),
         'longitude' => $this->request->getPost('longitude'),
         'description' => $this->request->getPost('description'),
-        'photo' => $name
+        'photo' => $namaPhoto // $name
       ];
-      $image->move(ROOTPATH . 'foto', $name);
-      $this->M_kantor->update_kantor($data, $id_kantor);
+      // $filePhoto->move(ROOTPATH . 'public/foto', $namaPhoto);
+      $this->ModelKantor->update_kantor($data, $id_kantor);
       session()->setFlashdata('success', 'Data berhasil diupdate');
       return redirect()->to(base_url('kantor'));
     }
@@ -218,7 +239,7 @@ class Kantor extends BaseController
 
   public function delete($id_kantor)
   {
-    $this->M_kantor->delete_kantor($id_kantor);
+    $this->ModelKantor->delete_kantor($id_kantor);
     session()->setFlashdata('success', 'Data berhasil dihapus');
     return redirect()->to(base_url('kantor'));
   }

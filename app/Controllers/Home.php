@@ -2,14 +2,14 @@
 
 namespace App\Controllers;
 
-use App\Models\M_kantor;
+use App\Models\ModelKantor;
 
 class Home extends BaseController
 {
 	public function __construct()
 	{
 		helper('form');
-		$this->M_kantor = new M_kantor();
+		$this->ModelKantor = new ModelKantor();
 	}
 
 	public function index()
@@ -37,7 +37,7 @@ class Home extends BaseController
 	{
 		$data = [
 			'title' => 'Map',
-			'kantor' => $this->M_kantor->get_all_data(),
+			'kantor' => $this->ModelKantor->get_all_data(),
 			'name' => 'Masrianto'
 		];
 		return view('map', $data);

@@ -1,4 +1,4 @@
-<?= $this->extend('layout/template'); ?>
+<?= $this->extend('layout/data_map'); ?>
 <?= $this->section('content'); ?>
 <!-- Main content -->
 <section class="content">
@@ -14,9 +14,8 @@
           <div id="map" style="height: 600px;">
 
           </div>
-
-        </div><!-- /.card -->
-      </div><!-- /.col -->
+        </div>
+      </div>
     </div>
     <div class="col-sm-5">
       <div class="card card-primary">
@@ -80,14 +79,26 @@
             <input type="text" class="form-control form-control-sm" id="description" name="description" value="<?= $kantor['description']; ?>">
             <!-- <textarea class="form-control form-control-sm" id="description" name="description" value="<?= $kantor['description']; ?>"></textarea> -->
           </div>
-          <div class=" form-group">
+          <!-- <div class=" form-group">
             <label> Preview</label><br>
-            <img src="<?= base_url('foto/' . $kantor['photo']); ?>" alt="<?= $kantor['photo']; ?>" width="100px"><br>
+            <img src="" alt="" width="100px"><br>
             <label for="photo"> Ganti Foto Kantor</label>
             <div class="input-group">
               <div class="custom-file">
                 <input type="file" class="custom-file-input" id="photo" name="photo">
                 <label class="custom-file-label" for="photo">Choose file</label>
+              </div>
+            </div> -->
+
+          <div class="form-group">
+            <label for="photo" class="col-sm-4 col-form-label">Foto Kantor</label>
+            <div class="col-sm-4">
+              <img src="<?= base_url('foto/' . $kantor['photo']); ?>" class="img-thumbnail img-preview">
+            </div>
+            <div class="input-group">
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="photo" name="photo" onchange="previewImg()">
+                <label class="custom-file-label" for="photo">Pilih Gambar</label>
               </div>
             </div>
 
@@ -98,8 +109,8 @@
 
           <?php echo form_close(); ?>
 
-        </div><!-- /.card -->
-      </div><!-- /.col -->
+        </div>
+      </div>
     </div>
 
 
@@ -134,13 +145,15 @@
         $('#longitude').val(position.lng).keyup();
       });
 
-      // $("#latitude, #longitude").change(function() {
-      //   var position = [parseInt($("#latitude").val()), parseInt($("#longitude").val())];
-      //   marker.setLatLng(position, {
-      //     draggable: 'true'
-      //   }).bindPopup(position).update();
-      //   map.panTo(position);
-      // });
+      map.addLayer(marker);
+
+      $("#latitude, #longitude").change(function() {
+        var position = [parseInt($("#latitude").val()), parseInt($("#longitude").val())];
+        marker.setLatLng(position, {
+          draggable: 'true'
+        }).bindPopup(position).update();
+        map.panTo(position);
+      });
 
       map.addLayer(marker);
     </script>
