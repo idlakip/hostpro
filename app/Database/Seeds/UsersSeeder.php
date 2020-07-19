@@ -34,7 +34,10 @@ class UsersSeeder extends \CodeIgniter\Database\Seeder
     // generate data by accessing properties
     // echo $faker->name;
     $faker = \Faker\Factory::create('id_ID');
-    for ($i = 0; $i < 25; $i++) {
+
+
+    for ($i = 0; $i < 100; $i++) {
+
       $data = [
         'nama'            => $faker->name,
         'username'        => $faker->userName,
