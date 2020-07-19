@@ -26,6 +26,7 @@
                 <th> No.</th>
                 <th>Nama Kantor</th>
                 <th>Telephone</th>
+                <th>Email</th>
                 <th>Alamat</th>
                 <th>Description</th>
                 <th>Foto</th>
@@ -39,6 +40,7 @@
                   <td><?= $no++; ?></td>
                   <td><?= $value['nama_kantor']; ?></td>
                   <td><?= $value['no_telp']; ?></td>
+                  <td><?= $value['email']; ?></td>
                   <td><?= $value['alamat']; ?></td>
                   <td><?= $value['description']; ?></td>
                   <td>
@@ -56,6 +58,7 @@
                 <th> No.</th>
                 <th>Nama Kantor</th>
                 <th>Telephone</th>
+                <th>Email</th>
                 <th>Alamat</th>
                 <th>Description</th>
                 <th>Foto</th>

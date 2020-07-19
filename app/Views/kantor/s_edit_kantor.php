@@ -38,6 +38,7 @@
 
           <?php echo form_open_multipart('kantor/update/' . $kantor['id_kantor']); ?>
           <?= csrf_field(); ?>
+          <input type="hidden" name="photoLama" value="<?= $kantor['photo']; ?>">
           <div class="form-group">
             <label for="nama_kantor">Nama Kantor</label>
             <input type="text" class="form-control form-control-sm" id="nama_kantor" name="nama_kantor" value="<?= $kantor['nama_kantor']; ?>">
@@ -53,6 +54,10 @@
               </div>
               <input type="text" class="form-control form-control-sm" id="no_telp" name="no_telp" value="<?= $kantor['no_telp']; ?>" data-inputmask="'mask': ['9999 999 99[99]', '9999 9999 9[9]99']" data-mask>
             </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control form-control-sm" id="email" name="email" value="<?= $kantor['email']; ?>">
           </div>
           <div class="form-group">
             <label for="alamat">Alamat</label>
@@ -98,7 +103,7 @@
             <div class="input-group">
               <div class="custom-file">
                 <input type="file" class="custom-file-input" id="photo" name="photo" onchange="previewImg()">
-                <label class="custom-file-label" for="photo">Pilih Gambar</label>
+                <label class="custom-file-label" for="photo"><?= $kantor['photo']; ?></label>
               </div>
             </div>
 

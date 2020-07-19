@@ -78,7 +78,7 @@
               <i class="nav-icon fas fa-map"></i>
               <p>
                 Map
-                <span class="right badge badge-danger">News</span>
+                <span class="right badge badge-danger">OK</span>
               </p>
             </a>
           </li>
@@ -96,7 +96,7 @@
               <i class="nav-icon fas fa-hotel"></i>
               <p>
                 Kantor
-                <span class="right badge badge-danger">New</span>
+                <span class="right badge badge-danger">OK</span>
               </p>
             </a>
           </li>

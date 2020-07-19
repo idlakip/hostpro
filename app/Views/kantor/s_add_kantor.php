@@ -11,7 +11,7 @@
         </div>
         <div class="card-body">
 
-          <div id="map" style="height: 600px;">
+          <div id="map" style="height: 700px;">
 
           </div>
 
@@ -56,6 +56,11 @@
             </div>
           </div>
           <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control form-control-sm" id="email" name="email" placeholder="email kantor">
+          </div>
+
+          <div class="form-group">
             <label for="alamat">Alamat</label>
             <input type="text" class="form-control form-control-sm" id="alamat" name="alamat" placeholder="Alamat kantor">
           </div>
@@ -85,7 +90,7 @@
             <label for="photo" class="col-sm-4 col-form-label">Foto Kantor</label>
             <div class="col-sm-4">
               <img src="/foto/default.jpg" class="img-thumbnail img-preview">
-            </div>
+            </div><br>
             <div class="input-group">
               <div class="custom-file">
                 <input type="file" class="custom-file-input" id="photo" name="photo" onchange="previewImg()">

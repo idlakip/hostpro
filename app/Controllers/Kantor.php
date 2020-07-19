@@ -52,6 +52,13 @@ class Kantor extends BaseController
           'required' => '{field} wajib diisi'
         ]
       ],
+      'email' => [
+        'label' => 'Email',
+        'rules' => 'required',
+        'errors' => [
+          'required' => '{field} wajib diisi'
+        ]
+      ],
       'alamat' => [
         'label' => 'Alamat Kantor',
         'rules' => 'required',
@@ -114,6 +121,7 @@ class Kantor extends BaseController
       $data = [
         'nama_kantor' => $this->request->getPost('nama_kantor'),
         'no_telp' => $this->request->getPost('no_telp'),
+        'email' => $this->request->getPost('email'),
         'alamat' => $this->request->getPost('alamat'),
         'pimpinan' => $this->request->getPost('pimpinan'),
         'latitude' => $this->request->getPost('latitude'),
@@ -152,6 +160,13 @@ class Kantor extends BaseController
       ],
       'no_telp' => [
         'label' => 'Telephone',
+        'rules' => 'required',
+        'errors' => [
+          'required' => '{field} wajib diisi'
+        ]
+      ],
+      'email' => [
+        'label' => 'Email',
         'rules' => 'required',
         'errors' => [
           'required' => '{field} wajib diisi'
@@ -222,6 +237,7 @@ class Kantor extends BaseController
         'id_kantor' => $id_kantor,
         'nama_kantor' => $this->request->getPost('nama_kantor'),
         'no_telp' => $this->request->getPost('no_telp'),
+        'email' => $this->request->getPost('email'),
         'alamat' => $this->request->getPost('alamat'),
         'pimpinan' => $this->request->getPost('pimpinan'),
         'latitude' => $this->request->getPost('latitude'),
@@ -239,6 +255,13 @@ class Kantor extends BaseController
 
   public function delete($id_kantor)
   {
+    // cari gambar berdasarkan id
+    $kantor = $this->ModelKantor->find($id_kantor);
+    // cek jika file gambarnya default.jpg
+    if ($kantor['photo'] != 'default.jpg') {
+      // Hapus gambar
+      unlink('foto/' . $kantor['photo']);
+    }
     $this->ModelKantor->delete_kantor($id_kantor);
     session()->setFlashdata('success', 'Data berhasil dihapus');
     return redirect()->to(base_url('kantor'));
