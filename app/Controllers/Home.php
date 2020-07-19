@@ -2,8 +2,16 @@
 
 namespace App\Controllers;
 
+use App\Models\M_kantor;
+
 class Home extends BaseController
 {
+	public function __construct()
+	{
+		helper('form');
+		$this->M_kantor = new M_kantor();
+	}
+
 	public function index()
 	{
 		$data = [
@@ -21,7 +29,7 @@ class Home extends BaseController
 			'title' => 'Tabel',
 			'name' => 'Masrianto'
 		];
-		return view('home', $data);
+		return view('table', $data);
 	}
 
 	//--------------------------------------------------------------------
@@ -29,9 +37,10 @@ class Home extends BaseController
 	{
 		$data = [
 			'title' => 'Map',
+			'kantor' => $this->M_kantor->get_all_data(),
 			'name' => 'Masrianto'
 		];
-		return view('home', $data);
+		return view('map', $data);
 	}
 
 	//--------------------------------------------------------------------
@@ -42,7 +51,7 @@ class Home extends BaseController
 			'title' => 'Charts',
 			'name' => 'Masrianto'
 		];
-		return view('home', $data);
+		return view('charts', $data);
 	}
 
 	//--------------------------------------------------------------------

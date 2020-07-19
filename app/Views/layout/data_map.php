@@ -12,6 +12,9 @@
   <link rel="stylesheet" href="<?= base_url(); ?>/template/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url(); ?>/template/dist/css/adminlte.min.css">
+  <!-- Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -28,7 +31,7 @@
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 3.1.0-pre
     </div>
-    <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    Copyright &copy; 2012-<?php echo date('Y'); ?><a href="https://adminlte.io"> Lakip.co.id</a>.</strong> All rights reserved.
   </footer>
 
   <!-- Control Sidebar -->
