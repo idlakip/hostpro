@@ -20,7 +20,8 @@
             </div>
           <?php }; ?>
           <?= csrf_field(); ?>
-          <table id="DTable1" class="table table-bordered table-striped">
+          <table id="table1" class="table table-bordered table-striped">
+            <!-- <table id="table1" class="table table-bordered table-striped"> -->
             <thead>
               <tr>
                 <th> No.</th>

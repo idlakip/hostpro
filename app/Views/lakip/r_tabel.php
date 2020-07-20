@@ -9,6 +9,14 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
+      <?php
+
+      if (!empty(session()->getFlashdata('success'))) { ?>
+        <div class="alert alert-success">
+          <?php echo session()->getFlashdata('success'); ?>
+        </div>
+      <?php }; ?>
+      <?= csrf_field(); ?>
       <table id="table1" class="table table-bordered table-striped">
         <thead>
           <tr>
@@ -22,20 +30,18 @@
           </tr>
         </thead>
         <tbody>
-          <?php $no = 1;
-          foreach ($users as $key => $value) { ?>
-
+          <?php $i = 1; ?>
+          <?php foreach ($users as $u) : ?>
             <tr>
-              <td><?= $no++; ?></td>
-              <td><?= $value['nama']; ?></td>
-              <td><?= $value['username']; ?></td>
-              <td><?= $value['email']; ?></td>
-              <td><?= $value['password']; ?></td>
-              <td><?= $value['password']; ?></td>
-              <td><?= $value['alamat']; ?></td>
-              <td><?= $value['level']; ?></td>
+              <td><?= $i++; ?></td>
+              <td><?= $u['nama']; ?></td>
+              <td><?= $u['username']; ?></td>
+              <td><?= $u['email']; ?></td>
+              <td><?= $u['password']; ?></td>
+              <td><?= $u['alamat']; ?></td>
+              <td><?= $u['level']; ?></td>
             </tr>
-          <?php } ?>
+          <?php endforeach; ?>
         </tbody>
         <tfoot>
           <tr>

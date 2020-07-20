@@ -23,14 +23,14 @@ class Home extends BaseController
 
 	//--------------------------------------------------------------------
 
-	public function table()
-	{
-		$data = [
-			'title' => 'Tabel',
-			'name' => 'Masrianto'
-		];
-		return view('table', $data);
-	}
+	// public function table()
+	// {
+	// 	$data = [
+	// 		'title' => 'Tabel',
+	// 		'name' => 'Masrianto'
+	// 	];
+	// 	return view('table', $data);
+	// }
 
 	//--------------------------------------------------------------------
 	public function map()

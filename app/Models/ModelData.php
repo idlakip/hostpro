@@ -4,8 +4,11 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ModelTabel extends Model
+class ModelData extends Model
 {
+  // protected $table = 'users';
+
+
   public function get_all_data()
   {
     return $this->db->table('users')->get()->getResultArray();

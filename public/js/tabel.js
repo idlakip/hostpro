@@ -2,11 +2,8 @@ $(function () {
   $("#table1").DataTable({
     responsive: true,
     autoWidth: false,
-    // info: true,
-    paging: true,
-    // lengthChange: false,
-    // ordering: true,
-    responsive: true,
+
+    // <table id="table1" class="table table-bordered table-striped">
   });
 
   $("#example2").DataTable({
