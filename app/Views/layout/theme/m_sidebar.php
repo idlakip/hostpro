@@ -74,6 +74,15 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="<?= base_url(); ?>/lakip/personal" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Contact
+                <span class="right badge badge-danger">Proses</span>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="<?= base_url(); ?>/home/map" class="nav-link">
               <i class="nav-icon fas fa-map"></i>
               <p>
@@ -100,6 +109,17 @@
               </p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="<?= base_url(); ?>/lakip/invoice" class="nav-link">
+              <i class="nav-icon fas fa-hotel"></i>
+              <p>
+                Invoice
+                <span class="right badge badge-danger">OK</span>
+              </p>
+            </a>
+          </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

@@ -23,4 +23,43 @@ class Lakip extends BaseController
     ];
     return view('lakip/r_tabel', $data);
   }
+
+  public function personal()
+  {
+    $data = [
+      'title' => 'Contatc',
+      'users' => $this->LakipModel->get_all_data(),
+
+    ];
+    return view('lakip/r_contact', $data);
+  }
+
+  public function invoice()
+  {
+    $data = [
+      'title' => 'Contatc',
+      'users' => $this->LakipModel->get_all_data(),
+
+    ];
+    return view('lakip/r_invoice', $data);
+  }
+
+  public function print()
+  {
+    $data = [
+      'title' => 'Contatc',
+      'users' => $this->LakipModel->get_all_data(),
+
+    ];
+    return view('lakip/invoice_print', $data);
+  }
+
+  public function pdf()
+  {
+    $data = [
+      'title' => 'Contatc',
+      'users' => $this->LakipModel->get_all_data(),
+    ];
+    return view('lakip/invoice_pdf', $data);
+  }
 }
