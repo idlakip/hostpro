@@ -1,3 +1,45 @@
+<?php
+function penyebut($nilai)
+{
+  $nilai = abs($nilai);
+  $huruf = array("", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas");
+  $temp = "";
+  if ($nilai < 12) {
+    $temp = " " . $huruf[$nilai];
+  } else if ($nilai < 20) {
+    $temp = penyebut($nilai - 10) . " belas";
+  } else if ($nilai < 100) {
+    $temp = penyebut($nilai / 10) . " puluh" . penyebut($nilai % 10);
+  } else if ($nilai < 200) {
+    $temp = " seratus" . penyebut($nilai - 100);
+  } else if ($nilai < 1000) {
+    $temp = penyebut($nilai / 100) . " ratus" . penyebut($nilai % 100);
+  } else if ($nilai < 2000) {
+    $temp = " seribu" . penyebut($nilai - 1000);
+  } else if ($nilai < 1000000) {
+    $temp = penyebut($nilai / 1000) . " ribu" . penyebut($nilai % 1000);
+  } else if ($nilai < 1000000000) {
+    $temp = penyebut($nilai / 1000000) . " juta" . penyebut($nilai % 1000000);
+  } else if ($nilai < 1000000000000) {
+    $temp = penyebut($nilai / 1000000000) . " milyar" . penyebut(fmod($nilai, 1000000000));
+  } else if ($nilai < 1000000000000000) {
+    $temp = penyebut($nilai / 1000000000000) . " trilyun" . penyebut(fmod($nilai, 1000000000000));
+  }
+  return $temp;
+}
+
+function terbilang($nilai)
+{
+  if ($nilai < 0) {
+    $hasil = "minus " . trim(penyebut($nilai));
+  } else {
+    $hasil = trim(penyebut($nilai));
+  }
+  return $hasil;
+}
+
+
+?>
 <?= $this->extend('layout/template_print'); ?>
 <?= $this->section('content'); ?>
 <!-- Main content -->
@@ -32,7 +74,6 @@
             From
             <address>
               <strong>LAKIP</strong><br>
-              Kemayoran<br>
               Jakarta, 10650<br>
               Phone: (021) 4288-5718<br>
               Email: info@lakip.co.id
@@ -43,7 +84,6 @@
             To
             <address>
               <strong><?= $users['nama'] ?></strong><br>
-              <?= $users['nama']; ?><br>
               <?= $users['alamat']; ?><br>
               Phone: <?= $users['password']; ?><br>
               Email: <?= $users['email']; ?>
@@ -52,13 +92,12 @@
           <!-- /.col -->
           <div class="col-sm-4 invoice-col">
             <b>Invoice #0020<?= $users['id_users']; ?></b><br>
-            <br>
-            <b>Order ID:</b> 4F3S8<?= $users['id_users']; ?>J<br>
-            <b>Payment Due:</b> <?php echo date('d M Y'); ?> - <?php $date = date_create('21-07-2020');
-                                                                date_add($date, date_interval_create_from_date_string('5 days'));
-                                                                echo date_format($date, 'd M Y');  ?>
-            <br>
-            <b>Account:</b> 968-345<?= $users['id_users']; ?>
+            <b>Order ID:</> 4F3S8<?= $users['id_users']; ?>J<br>
+              <b>Payment Due:</b> <?php echo date('d M Y'); ?> - <?php $date = date_create('21-07-2020');
+                                                                  date_add($date, date_interval_create_from_date_string('5 days'));
+                                                                  echo date_format($date, 'd M Y');  ?>
+              <br>
+              <b>Account:</b> 968-345<?= $users['id_users']; ?>
           </div>
           <!-- /.col -->
         </div>
@@ -67,44 +106,51 @@
         <!-- Table row -->
         <div class="row">
           <div class="col-12 table-responsive">
+            <!-- <p class="lead text-center"> -->
+            <p class="text-muted well well-sm shadow-none text-center" style="margin-top: 10px;">
+              KWITANSI
+            </p>
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>Qty</th>
-                  <th>Product</th>
-                  <th>Serial #</th>
-                  <th>Description</th>
-                  <th>Subtotal</th>
+                  <th style="width:5%">Qty</th>
+                  <th>#</th>
+                  <th style="width:85%">Description</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>1</td>
-                  <td>Call of Duty</td>
-                  <td>455-981-221</td>
-                  <td>El snort testosterone trophy driving gloves handsome</td>
-                  <td>$64.50</td>
+                  <td>Nama</td>
+                  <td>:</td>
+                  <td>
+
+                    <?= $users['nama']; ?>
+                  </td>
                 </tr>
                 <tr>
-                  <td>1</td>
-                  <td>Need for Speed IV</td>
-                  <td>247-925-726</td>
-                  <td>Wes Anderson umami biodiesel</td>
-                  <td>$50.00</td>
+                  <td>Jabatan</td>
+                  <td>:</td>
+                  <td>
+
+                    <?= $users['password']; ?>
+                  </td>
                 </tr>
                 <tr>
-                  <td>1</td>
-                  <td>Monsters DVD</td>
-                  <td>735-845-642</td>
-                  <td>Terry Richardson helvetica tousled street art master</td>
-                  <td>$10.70</td>
+                  <td>Asal</td>
+                  <td>:</td>
+                  <td>
+
+                    <?= $users['alamat']; ?>
+                  </td>
                 </tr>
                 <tr>
-                  <td>1</td>
-                  <td>Grown Ups Blue Ray</td>
-                  <td>422-568-642</td>
-                  <td>Tousled lomo letterpress</td>
-                  <td>$25.99</td>
+                  <td>Pembayaran</td>
+                  <td>:</td>
+                  <td>
+
+                    kontribusi bimtek tentang : Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor ut libero dolore et dolorum? Perferendis quibusdam harum rerum enim. Dolorem dolores fugiat fuga culpa esse est sit iusto optio amet? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita, ullam voluptates fuga impedit cum molestiae, debitis possimus similique sapiente ea officiis, ipsam minus earum maiores adipisci? Consequatur molestias cumque eveniet. <?= $users['alamat']; ?> Terbilang : ###<?php echo ucwords(terbilang($users['level'])) . " Rupiah"; ?>###
+                    </p>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -112,27 +158,55 @@
           <!-- /.col -->
         </div>
         <!-- /.row -->
+        <hr>
+        <div class="row">
+          <div class="col-10">
+            <p class="lead">
+              Terbilang : ###<?php echo ucwords(terbilang($users['level'])) . " Rupiah"; ?>###
+            </p>
+          </div>
+
+          <div class="col-2">
+            <p class="lead">
+              <?php
+              function rupiah($angka)
+              {
+                $hasil_rupiah = "Rp " . number_format($angka, 2, ',', '.');
+                return $hasil_rupiah;
+              }
+              echo rupiah($users['level']);
+              ?>
+            </p>
+          </div>
+        </div>
+        <hr>
 
         <div class="row">
           <!-- accepted payments column -->
-          <div class="col-6">
+          <div class="col-7">
+            <!-- <p class="text-muted well well-sm shadow-none" style="margin-top: 10px;"> -->
             <p class="lead">Payment Methods:</p>
-            <img src="<?= base_url(); ?>/template/dist/img/credit/visa.png" alt="Visa">
-            <img src="<?= base_url(); ?>/template/dist/img/credit/mastercard.png" alt="Mastercard">
-            <img src="<?= base_url(); ?>/template/dist/img/credit/american-express.png" alt="American Express">
-            <img src="<?= base_url(); ?>/template/dist/img/credit/paypal2.png" alt="Paypal">
+            <img src="<?= base_url(); ?>/template/dist/img/credit/mandiri.svg" alt="Bank Mandiri">
+            <img src="<?= base_url(); ?>/template/dist/img/credit/bri.svg" alt="Bank BRI">
+            <img src="<?= base_url(); ?>/template/dist/img/credit/bni.svg" alt="Bank BNI">
+            <img src="<?= base_url(); ?>/template/dist/img/credit/bca.svg" alt="Bank BCA">
 
             <p class="text-muted well well-sm shadow-none" style="margin-top: 10px;">
-              Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem
-              plugg
-              dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
+              "Dicetak otomatis oleh sistem elektronik dan tidak memerlukan tandatangan, Untuk informasi dapat menghubungi bagian keuangan di 021-42885718".
             </p>
+
           </div>
           <!-- /.col -->
-          <div class="col-6">
-            <p class="lead">Amount Due <?php echo date('d M Y'); ?></p>
-
-            <div class="table-responsive">
+          <div class="col-5">
+            <p class="lead text-center">Jakarta , <?php echo date('d M Y'); ?> <br>
+              Lembaga Administrasi Keuangan dan Ilmu Pemerintahan
+            </p>
+            <br><br><br>
+            <p class="lead text-center">
+              MASRIANTO
+            </p>
+            <hr>
+            <!-- <div class="table-responsive">
               <table class="table">
                 <tr>
                   <th style="width:50%">Subtotal:</th>
@@ -148,10 +222,10 @@
                 </tr>
                 <tr>
                   <th>Total:</th>
-                  <td>$265.24</td>
+                  <td>15000</td>
                 </tr>
-              </table>
-            </div>
+              </table> -->
+            <!-- </div> -->
           </div>
           <!-- /.col -->
         </div>

@@ -51,7 +51,7 @@ class Lakip extends BaseController
   public function personal()
   {
     $data = [
-      'title' => 'Contatc',
+      'title' => 'Contact',
       'users' => $this->LakipModel->getLakip()
     ];
     return view('lakip/r_contact', $data);
