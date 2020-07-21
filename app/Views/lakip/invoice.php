@@ -60,15 +60,26 @@ function terbilang($nilai)
       <div class="invoice p-3 mb-3">
         <!-- title row -->
         <div class="row">
-          <div class="col-12">
-            <h4>
-              <i class="fas fa-globe"></i> AdminLTE, Inc.
-              <small class="float-right">Date: <?php echo date('d m Y'); ?></small>
-            </h4>
+          <!-- <div class="col-12"> -->
+          <div class="col-sm-2 invoice-col">
+            <img src="<?= base_url(); ?>/template/dist/img/credit/bca.svg" alt="Bank BCA">
+
+            <!-- <h4> -->
+            <!-- <i class="fas fa-globe"></i>  -->
+            <!-- <small class="float-right">Date: <?php echo date('d m Y'); ?></small> -->
+            <!-- </h4> -->
           </div>
+          <!-- <div class="col-sm-10 invoice-col text-center"> -->
+          <!-- <h4>Lembaga Administrasi Keuangan dan Ilmu Pemerintahan <br> LAKIP</h4> -->
+          <!-- <h4 class="text-muted well well-sm shadow-none text-center" style="margin-top: 10px;">Lembaga Administrasi Keuangan dan Ilmu Pemerintahan <br> LAKIP</h4> -->
+          <!-- </div> -->
+          <!-- </div> -->
           <!-- /.col -->
         </div>
         <!-- info row -->
+        <hr>
+        <small class="float-right">Jakarta, <?php echo date('d m Y'); ?></small> <br>
+
         <div class="row invoice-info">
           <div class="col-sm-4 invoice-col">
             From
@@ -102,14 +113,14 @@ function terbilang($nilai)
           <!-- /.col -->
         </div>
         <!-- /.row -->
-
+        <hr>
         <!-- Table row -->
         <div class="row">
           <div class="col-12 table-responsive">
             <!-- <p class="lead text-center"> -->
-            <p class="text-muted well well-sm shadow-none text-center" style="margin-top: 10px;">
-              KWITANSI
-            </p>
+            <!-- <p class="text-muted well well-sm shadow-none text-center" style="margin-top: 10px;">
+            </p> -->
+            <h4 class="text-muted well well-sm shadow-none text-center my-10%">KWITANSI</h4>
             <table class="table table-striped">
               <thead>
                 <tr>
@@ -201,8 +212,9 @@ function terbilang($nilai)
             <p class="lead text-center">Jakarta , <?php echo date('d M Y'); ?> <br>
               Lembaga Administrasi Keuangan dan Ilmu Pemerintahan
             </p>
-            <br><br><br>
+            <br>
             <p class="lead text-center">
+              <img src="<?= base_url(); ?>/template/dist/img/credit/bca.svg" alt="Bank BCA"><br>
               MASRIANTO
             </p>
             <hr>

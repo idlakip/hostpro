@@ -63,21 +63,31 @@ function terbilang($nilai)
 <div class="invoice p-3 mb-3">
   <!-- title row -->
   <div class="row">
-    <div class="col-12">
-      <h4>
-        <i class="fas fa-globe"></i> AdminLTE, Inc.
-        <small class="float-right">Date: <?php echo date('d m Y'); ?></small>
-      </h4>
+    <!-- <div class="col-12"> -->
+    <div class="col-sm-2 invoice-col">
+      <img src="<?= base_url(); ?>/template/dist/img/credit/bca.svg" alt="Bank BCA">
+
+      <!-- <h4> -->
+      <!-- <i class="fas fa-globe"></i>  -->
+      <!-- <small class="float-right">Date: <?php echo date('d m Y'); ?></small> -->
+      <!-- </h4> -->
     </div>
+    <!-- <div class="col-sm-10 invoice-col text-center"> -->
+    <!-- <h4>Lembaga Administrasi Keuangan dan Ilmu Pemerintahan <br> LAKIP</h4> -->
+    <!-- <h4 class="text-muted well well-sm shadow-none text-center" style="margin-top: 10px;">Lembaga Administrasi Keuangan dan Ilmu Pemerintahan <br> LAKIP</h4> -->
+    <!-- </div> -->
+    <!-- </div> -->
     <!-- /.col -->
   </div>
   <!-- info row -->
+  <hr>
+  <small class="float-right">Jakarta, <?php echo date('d m Y'); ?></small> <br>
   <div class="row invoice-info">
     <div class="col-sm-4 invoice-col">
       From
       <address>
         <strong>LAKIP</strong><br>
-        Kemayoran<br>
+        Jakarta, 10650<br>
         Phone: (021) 4288-5718<br>
         Email: info@lakip.co.id
       </address>
@@ -95,27 +105,30 @@ function terbilang($nilai)
     <!-- /.col -->
     <div class="col-sm-4 invoice-col">
       <b>Invoice #0020<?= $users['id_users']; ?></b><br>
-      <br>
-      <b>Order ID:</b> 4F3S8<?= $users['id_users']; ?>J<br>
-      <b>Payment Due:</b> <?php echo date('d M Y'); ?> - <?php $date = date_create('21-07-2020');
-                                                          date_add($date, date_interval_create_from_date_string('5 days'));
-                                                          echo date_format($date, 'd M Y');  ?>
-      <br>
-      <b>Account:</b> 968-345<?= $users['id_users']; ?>
+      <b>Order ID:</> 4F3S8<?= $users['id_users']; ?>J<br>
+        <b>Payment Due:</b> <?php echo date('d M Y'); ?> - <?php $date = date_create('21-07-2020');
+                                                            date_add($date, date_interval_create_from_date_string('5 days'));
+                                                            echo date_format($date, 'd M Y');  ?>
+        <br>
+        <b>Account:</b> 968-345<?= $users['id_users']; ?>
     </div>
     <!-- /.col -->
   </div>
   <!-- /.row -->
-
+  <hr>
   <!-- Table row -->
   <div class="row">
     <div class="col-12 table-responsive">
+      <!-- <p class="lead text-center"> -->
+      <!-- <p class="text-muted well well-sm shadow-none text-center" style="margin-top: 10px;">
+            </p> -->
+      <h4 class="text-muted well well-sm shadow-none text-center my-10%">KWITANSI</h4>
       <table class="table table-striped">
         <thead>
           <tr>
-            <th>Qty</th>
+            <th style="width:5%">Qty</th>
             <th>#</th>
-            <th>Description</th>
+            <th style="width:85%">Description</th>
           </tr>
         </thead>
         <tbody>
@@ -149,7 +162,7 @@ function terbilang($nilai)
             <td>
 
               kontribusi bimtek tentang : Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor ut libero dolore et dolorum? Perferendis quibusdam harum rerum enim. Dolorem dolores fugiat fuga culpa esse est sit iusto optio amet? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita, ullam voluptates fuga impedit cum molestiae, debitis possimus similique sapiente ea officiis, ipsam minus earum maiores adipisci? Consequatur molestias cumque eveniet. <?= $users['alamat']; ?> Terbilang : ###<?php echo ucwords(terbilang($users['level'])) . " Rupiah"; ?>###
-
+              </p>
             </td>
           </tr>
         </tbody>
@@ -158,7 +171,6 @@ function terbilang($nilai)
     <!-- /.col -->
   </div>
   <!-- /.row -->
-
   <hr>
   <div class="row">
     <div class="col-10">
@@ -166,6 +178,7 @@ function terbilang($nilai)
         Terbilang : ###<?php echo ucwords(terbilang($users['level'])) . " Rupiah"; ?>###
       </p>
     </div>
+
     <div class="col-2">
       <p class="lead">
         <?php
@@ -186,10 +199,10 @@ function terbilang($nilai)
     <div class="col-7">
       <!-- <p class="text-muted well well-sm shadow-none" style="margin-top: 10px;"> -->
       <p class="lead">Payment Methods:</p>
-      <img src="<?= base_url(); ?>/template/dist/img/credit/mandiri.svg" alt="BankMandiri">
-      <img src="<?= base_url(); ?>/template/dist/img/credit/bri.svg" alt="BankMandiri">
-      <img src="<?= base_url(); ?>/template/dist/img/credit/bni.svg" alt="BankMandiri">
-      <img src="<?= base_url(); ?>/template/dist/img/credit/bca.svg" alt="BankMandiri">
+      <img src="<?= base_url(); ?>/template/dist/img/credit/mandiri.svg" alt="Bank Mandiri">
+      <img src="<?= base_url(); ?>/template/dist/img/credit/bri.svg" alt="Bank BRI">
+      <img src="<?= base_url(); ?>/template/dist/img/credit/bni.svg" alt="Bank BNI">
+      <img src="<?= base_url(); ?>/template/dist/img/credit/bca.svg" alt="Bank BCA">
 
       <p class="text-muted well well-sm shadow-none" style="margin-top: 10px;">
         "Dicetak otomatis oleh sistem elektronik dan tidak memerlukan tandatangan, Untuk informasi dapat menghubungi bagian keuangan di 021-42885718".
@@ -201,8 +214,9 @@ function terbilang($nilai)
       <p class="lead text-center">Jakarta , <?php echo date('d M Y'); ?> <br>
         Lembaga Administrasi Keuangan dan Ilmu Pemerintahan
       </p>
-      <br><br><br>
+      <br>
       <p class="lead text-center">
+        <img src="<?= base_url(); ?>/template/dist/img/credit/bca.svg" alt="Bank BCA"><br>
         MASRIANTO
       </p>
       <hr>
