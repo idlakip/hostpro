@@ -5,7 +5,7 @@
 
   <div class="card">
     <div class="card-header">
-      <h3 class="card-title"><?= $title; ?></h3>
+      <h3 class="card-title"><a href="<?= base_url('lakip/tambah'); ?>" class="btn btn-sm btn-primary">Add <?= $title; ?></a></h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
@@ -26,22 +26,29 @@
             <th>email</th>
             <th>password</th>
             <th>alamat</th>
-            <th>level</th>
+            <th>Aksi</th>
           </tr>
         </thead>
         <tbody>
-          <?php $i = 1; ?>
-          <?php foreach ($users as $u) : ?>
+
+          <?php $no = 1;
+          foreach ($users as $key => $value) { ?>
             <tr>
-              <td><?= $i++; ?></td>
-              <td><?= $u['nama']; ?></td>
-              <td><?= $u['username']; ?></td>
-              <td><?= $u['email']; ?></td>
-              <td><?= $u['password']; ?></td>
-              <td><?= $u['alamat']; ?></td>
-              <td><?= $u['level']; ?></td>
+              <td><?= $no++; ?></td>
+              <td><?= $value['nama']; ?></td>
+              <td>
+                <?= $value['username']; ?> <br> <a href="<?= base_url('lakip/invoice/' . $value['id_users']); ?>" class="btn btn-sm btn-success"><i class="fas fa-file"></i>Invoice</a>
+
+              </td>
+              <td><?= $value['email']; ?></td>
+              <td><?= $value['password']; ?></td>
+              <td><?= $value['alamat']; ?></td>
+              <td>
+                <a href="<?= base_url('lakip/edit/' . $value['id_users']); ?>" class="btn btn-sm btn-success"><i class="fas fa-edit"></i>Edit</a>
+                <a href="<?= base_url('lakip/delete/' . $value['id_users']); ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah yakin ingin hapus???')"><i class="fas fa-trash-alt"></i>Hapus</a>
+              </td>
             </tr>
-          <?php endforeach; ?>
+          <?php } ?>
         </tbody>
         <tfoot>
           <tr>

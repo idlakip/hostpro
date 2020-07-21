@@ -68,7 +68,7 @@
             <a href="<?= base_url(); ?>/lakip" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
-                Tabel
+                LAKIP
                 <span class="right badge badge-danger">Proses</span>
               </p>
             </a>

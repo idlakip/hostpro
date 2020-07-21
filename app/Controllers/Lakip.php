@@ -4,10 +4,11 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use App\Models\LakipModel;
+use CodeIgniter\Validation\Rules;
 
 class Lakip extends BaseController
 {
-  // protected $LakipModel;
+  protected $LakipModel;
   public function __construct()
   {
     helper('form');
@@ -17,38 +18,65 @@ class Lakip extends BaseController
   public function index()
   {
     $data = [
-      'title' => 'Datatable',
-      'users' => $this->LakipModel->get_all_data(),
+      'title' => 'User',
+      // 'users' => $this->LakipModel->get_all_data(),
+      'users' => $this->LakipModel->getLakip()
+
 
     ];
-    return view('lakip/r_tabel', $data);
+    return view('lakip/index', $data);
+  }
+
+  public function tambah()
+  {
+    $data = [
+      'title' => 'User',
+      // 'users' => $this->LakipModel->insert_data(),
+
+    ];
+    return view('lakip/tambah', $data);
+  }
+
+
+  public function edit($id_users)
+  {
+    $data = [
+      'title' => 'Edit Users',
+      'users' => $this->LakipModel->detail_users($id_users),
+
+    ];
+    return view('lakip/edit', $data);
   }
 
   public function personal()
   {
     $data = [
       'title' => 'Contatc',
-      'users' => $this->LakipModel->get_all_data(),
-
+      'users' => $this->LakipModel->getLakip()
     ];
     return view('lakip/r_contact', $data);
   }
 
-  public function invoice()
+  public function invoice($id_users)
   {
     $data = [
-      'title' => 'Contatc',
-      'users' => $this->LakipModel->get_all_data(),
+      'title' => 'INVOICE',
+      // 'users' => $this->LakipModel->get_all_data(),
+      'users' => $this->LakipModel->detail_users($id_users),
+      // 'users' => $this->LakipModel->getLakip($id_users),
+
 
     ];
-    return view('lakip/r_invoice', $data);
+    return view('lakip/invoice', $data);
   }
 
-  public function print()
+  public function print($id_users)
   {
     $data = [
-      'title' => 'Contatc',
-      'users' => $this->LakipModel->get_all_data(),
+      'title' => 'PRINT',
+      // 'users' => $this->LakipModel->get_all_data(),
+      'users' => $this->LakipModel->detail_users($id_users),
+      // 'users' => $this->LakipModel->getLakip(),
 
     ];
     return view('lakip/invoice_print', $data);
@@ -57,8 +85,10 @@ class Lakip extends BaseController
   public function pdf()
   {
     $data = [
-      'title' => 'Contatc',
-      'users' => $this->LakipModel->get_all_data(),
+      'title' => 'PDF',
+      // 'users' => $this->LakipModel->get_all_data(),
+      'users' => $this->LakipModel->getLakip(),
+
     ];
     return view('lakip/invoice_pdf', $data);
   }
