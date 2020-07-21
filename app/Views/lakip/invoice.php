@@ -118,8 +118,7 @@ function terbilang($nilai)
         <div class="row">
           <div class="col-12 table-responsive">
             <!-- <p class="lead text-center"> -->
-            <!-- <p class="text-muted well well-sm shadow-none text-center" style="margin-top: 10px;">
-            </p> -->
+
             <h4 class="text-muted well well-sm shadow-none text-center my-10%">KWITANSI</h4>
             <table class="table table-striped">
               <thead>
