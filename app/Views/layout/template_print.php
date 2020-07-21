@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?= base_url(); ?>/template/plugins/fontawesome-free/css/all.min.css">
+  <!-- My CSS -->
+  <link rel="stylesheet" href="/css/style.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url(); ?>/template/dist/css/adminlte.min.css">
 </head>
@@ -26,7 +28,7 @@
   </div>
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.1.0-pre
+      <b>Version</b> 1.0.0
     </div>
     Copyright &copy; 2012-<?php echo date('Y'); ?><a href="https://lakip.co.id"> Lakip.co.id</a>.</strong> All rights reserved.
   </footer>
@@ -43,10 +45,18 @@
   <script src="<?= base_url(); ?>/template/plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
   <script src="<?= base_url(); ?>/template/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- DataTables -->
+  <script src="<?= base_url(); ?>/template/plugins/datatables/jquery.dataTables.min.js"></script>
+  <script src="<?= base_url(); ?>/template/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <script src="<?= base_url(); ?>/template/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+  <script src="<?= base_url(); ?>/template/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
   <!-- AdminLTE App -->
   <script src="<?= base_url(); ?>/template/dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="<?= base_url(); ?>/template/dist/js/demo.js"></script>
+  <!-- My JS -->
+  <script src="<?= base_url(); ?>/js/tabel.js"></script>
+
 </body>
 
 </html>

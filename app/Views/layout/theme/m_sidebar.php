@@ -14,7 +14,7 @@
           <img src="<?= base_url(); ?>/template/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"><?= $name; ?></a>
+          <a href="#" class="d-block">Admin</a>
         </div>
       </div>
 
@@ -51,7 +51,7 @@
               <i class="nav-icon fas fa-home"></i>
               <p>
                 Home
-                <span class="right badge badge-danger">New</span>
+                <span class="right badge badge-danger">Proses</span>
               </p>
             </a>
           </li>
@@ -60,16 +60,25 @@
               <i class="nav-icon fas fa-user"></i>
               <p>
                 About
-                <!-- <span class="right badge badge-danger">New</span> -->
+                <span class="right badge badge-danger">Proses</span>
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?= base_url(); ?>/home/table" class="nav-link">
+            <a href="<?= base_url(); ?>/lakip" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
-                Tabel
-                <!-- <span class="right badge badge-danger">New</span> -->
+                LAKIP
+                <span class="right badge badge-danger">Proses</span>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?= base_url(); ?>/lakip/personal" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Contact
+                <span class="right badge badge-danger">Proses</span>
               </p>
             </a>
           </li>
@@ -78,7 +87,7 @@
               <i class="nav-icon fas fa-map"></i>
               <p>
                 Map
-                <!-- <span class="right badge badge-danger">New</span> -->
+                <span class="right badge badge-danger">OK</span>
               </p>
             </a>
           </li>
@@ -87,7 +96,26 @@
               <i class="nav-icon fas fa-chart-line"></i>
               <p>
                 Chart
-                <!-- <span class="right badge badge-danger">New</span> -->
+                <span class="right badge badge-danger">Proses</span>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?= base_url(); ?>/kantor" class="nav-link">
+              <i class="nav-icon fas fa-hotel"></i>
+              <p>
+                Kantor
+                <span class="right badge badge-danger">OK</span>
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="<?= base_url(); ?>/lakip/invoice" class="nav-link">
+              <i class="nav-icon fas fa-hotel"></i>
+              <p>
+                Invoice
+                <span class="right badge badge-danger">OK</span>
               </p>
             </a>
           </li>
