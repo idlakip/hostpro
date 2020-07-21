@@ -13,6 +13,8 @@
   <!-- DataTables -->
   <link rel="stylesheet" href="<?= base_url(); ?>/template/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="<?= base_url(); ?>/template/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <!-- My CSS -->
+  <link rel="stylesheet" href="/css/style.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url(); ?>/template/dist/css/adminlte.min.css">
 </head>
@@ -31,7 +33,7 @@
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 3.1.0-pre
     </div>
-    <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    Copyright &copy; 2012-<?php echo date('Y'); ?><a href="https://lakip.co.id"> Lakip.co.id</a>.</strong> All rights reserved.
   </footer>
 
   <!-- Control Sidebar -->
@@ -57,7 +59,5 @@
   <script src="<?= base_url(); ?>/template/dist/js/demo.js"></script>
   <!-- My JS -->
   <script src="<?= base_url(); ?>/js/tabel.js"></script>
-
 </body>
-
 </html>

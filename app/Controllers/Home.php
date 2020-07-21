@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Controllers;
-
 use App\Models\ModelKantor;
 
 class Home extends BaseController
@@ -67,6 +66,7 @@ class Home extends BaseController
 	}
 
 	//--------------------------------------------------------------------
+
 
 	public function about()
 	{

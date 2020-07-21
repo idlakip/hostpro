@@ -7,6 +7,8 @@ $(function () {
     // lengthChange: false,
     // ordering: true,
     responsive: true,
+    // <table id="table1" class="table table-bordered table-striped">
+
   });
 
   $("#example2").DataTable({
