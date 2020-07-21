@@ -2,7 +2,9 @@
 
 namespace App\Controllers;
 
+
 use App\Models\ModelKantor;
+
 
 class Home extends BaseController
 {
@@ -19,18 +21,9 @@ class Home extends BaseController
 			'name' => 'Masrianto'
 		];
 		return view('home', $data);
+
 	}
 
-	//--------------------------------------------------------------------
-
-	// public function table()
-	// {
-	// 	$data = [
-	// 		'title' => 'Tabel',
-	// 		'name' => 'Masrianto'
-	// 	];
-	// 	return view('table', $data);
-	// }
 
 	//--------------------------------------------------------------------
 	public function map()
@@ -45,13 +38,16 @@ class Home extends BaseController
 
 	//--------------------------------------------------------------------
 
+
 	public function charts()
 	{
 		$data = [
 			'title' => 'Charts',
 			'name' => 'Masrianto'
 		];
+    
 		return view('charts', $data);
+
 	}
 
 	//--------------------------------------------------------------------

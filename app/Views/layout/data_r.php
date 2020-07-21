@@ -12,11 +12,6 @@
   <link rel="stylesheet" href="<?= base_url(); ?>/template/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url(); ?>/template/dist/css/adminlte.min.css">
-  <!-- My CSS -->
-  <link rel="stylesheet" href="/css/style.css">
-  <!-- Map -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -31,11 +26,9 @@
   </div>
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-
-      <b>Version</b> 1.0.0-pre
+      <b>Version</b> 3.1.0-pre
     </div>
-    Copyright &copy; 2012-<?php echo date('Y'); ?><a href="https://lakip.co.id"> Lakip.co.id</a>.</strong> All rights reserved.
-
+    <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
   </footer>
 
   <!-- Control Sidebar -->
@@ -50,14 +43,8 @@
   <script src="<?= base_url(); ?>/template/plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
   <script src="<?= base_url(); ?>/template/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- bs-custom-file-input -->
-  <script src="<?= base_url(); ?>/template/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
   <!-- AdminLTE App -->
   <script src="<?= base_url(); ?>/template/dist/js/adminlte.min.js"></script>
-  <!-- My JS -->
-  <script src="<?= base_url(); ?>/js/tabel.js"></script>
-
   <!-- AdminLTE for demo purposes -->
   <script src="<?= base_url(); ?>/template/dist/js/demo.js"></script>
 </body>
