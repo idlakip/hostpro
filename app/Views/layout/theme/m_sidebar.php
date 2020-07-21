@@ -14,7 +14,7 @@
           <img src="<?= base_url(); ?>/template/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Admin</a>
+          <a href="#" class="d-block"><?= $title; ?></a>
         </div>
       </div>
 
@@ -109,7 +109,6 @@
               </p>
             </a>
           </li>
-
           <li class="nav-item">
             <a href="<?= base_url(); ?>/lakip/invoice" class="nav-link">
               <i class="nav-icon fas fa-hotel"></i>
