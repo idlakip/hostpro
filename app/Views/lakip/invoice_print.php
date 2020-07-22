@@ -36,9 +36,13 @@ function terbilang($nilai)
     $hasil = trim(penyebut($nilai));
   }
   return $hasil;
-}
+};
 
-
+function rupiah($angka)
+{
+  $hasil_rupiah = "Rp " . number_format($angka, 2, ',', '.');
+  return $hasil_rupiah;
+};
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,7 +69,7 @@ function terbilang($nilai)
   <div class="row">
     <!-- <div class="col-12"> -->
     <div class="col-sm-2 invoice-col">
-      <img src="<?= base_url(); ?>/template/dist/img/credit/bca.svg" alt="Bank BCA">
+      <img src="<?= base_url(); ?>/template/dist/img/credit/lakip.png" class="photo" alt="LAKIP">
 
       <!-- <h4> -->
       <!-- <i class="fas fa-globe"></i>  -->
@@ -80,10 +84,11 @@ function terbilang($nilai)
     <!-- /.col -->
   </div>
   <!-- info row -->
-  <hr>
   <small class="float-right">Jakarta, <?php echo date('d m Y'); ?></small> <br>
+  <hr>
+
   <div class="row invoice-info">
-    <div class="col-sm-4 invoice-col">
+    <div class="col-sm-5 invoice-col">
       From
       <address>
         <strong>LAKIP</strong><br>
@@ -93,24 +98,25 @@ function terbilang($nilai)
       </address>
     </div>
     <!-- /.col -->
-    <div class="col-sm-4 invoice-col">
+    <div class="col-sm-5 invoice-col">
       To
       <address>
         <strong><?= $users['nama'] ?></strong><br>
         <?= $users['alamat']; ?><br>
-        Phone: <?= $users['password']; ?><br>
-        Email: <?= $users['email']; ?>
+        <b>Order ID:</> 4F3S8<?= $users['id_users']; ?>J<br>
+          <b>Payment Due:</b> <?php echo date('d M Y'); ?> - <?php $date = date_create('21-07-2020');
+                                                              date_add($date, date_interval_create_from_date_string('5 days'));
+                                                              echo date_format($date, 'd M Y');  ?>
+          <br>
+          <b>Account:</b> 968-345<?= $users['id_users']; ?>
+          <b>Invoice #lakip-0<?= $users['id_users'] . '-' . date('ymd'); ?></b><br>
       </address>
     </div>
     <!-- /.col -->
-    <div class="col-sm-4 invoice-col">
-      <b>Invoice #0020<?= $users['id_users']; ?></b><br>
-      <b>Order ID:</> 4F3S8<?= $users['id_users']; ?>J<br>
-        <b>Payment Due:</b> <?php echo date('d M Y'); ?> - <?php $date = date_create('21-07-2020');
-                                                            date_add($date, date_interval_create_from_date_string('5 days'));
-                                                            echo date_format($date, 'd M Y');  ?>
-        <br>
-        <b>Account:</b> 968-345<?= $users['id_users']; ?>
+    <div class="col-sm-2 invoice-col">
+
+      <img src="<?= base_url('qrcode/inv-' . $users['id_users'] . '-' . date('ymd') . '.png'); ?>" style="width:100px" alt="<?= $users['nama']; ?>">
+
     </div>
     <!-- /.col -->
   </div>
@@ -132,22 +138,6 @@ function terbilang($nilai)
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Nama</td>
-            <td>:</td>
-            <td>
-
-              <?= $users['nama']; ?>
-            </td>
-          </tr>
-          <tr>
-            <td>Jabatan</td>
-            <td>:</td>
-            <td>
-
-              <?= $users['password']; ?>
-            </td>
-          </tr>
           <tr>
             <td>Asal</td>
             <td>:</td>
@@ -175,18 +165,14 @@ function terbilang($nilai)
   <div class="row">
     <div class="col-10">
       <p class="lead">
-        Terbilang : ###<?php echo ucwords(terbilang($users['level'])) . " Rupiah"; ?>###
+        Terbilang : ###<?= ucwords(terbilang($users['level'])) . " Rupiah"; ?>###
       </p>
     </div>
 
     <div class="col-2">
       <p class="lead">
         <?php
-        function rupiah($angka)
-        {
-          $hasil_rupiah = "Rp " . number_format($angka, 2, ',', '.');
-          return $hasil_rupiah;
-        }
+
         echo rupiah($users['level']);
         ?>
       </p>

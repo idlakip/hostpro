@@ -1,3 +1,6 @@
+<?php
+$qrCode = new Endroid\QrCode\QrCode($users['id_users']);
+$qrCode->writeFile(ROOTPATH . 'public/qrcode/inv-' . $users['id_users'] . '.png'); ?>
 <?= $this->extend('layout/data_table'); ?>
 <?= $this->section('content'); ?>
 <!-- Main content -->
@@ -61,8 +64,13 @@
           <h3 class="card-title">Lokasi </h3>
         </div>
         <div class="card-body">
+          <?php
 
-
+          // header('Content-Type: ' . $qrCode->getContentType());
+          // echo $qrCode->writeString();
+          ?>
+          <img src="<?= base_url('qrcode/inv-' . $users['id_users'] . '.png'); ?>" style="width:100px" alt="<?= $users['nama']; ?>">
+          <a href="<?= base_url('lakip/qrcode/' . $users['id_users']); ?>" class="btn btn-warning btn-flat btn-sm"><i class="fa fa-download"></i></a>
 
         </div>
       </div>

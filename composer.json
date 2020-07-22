@@ -7,7 +7,23 @@
 	"require": {
 		"php": ">=7.2",
 		"codeigniter4/framework": "^4",
-		"fzaninotto/faker": "^1.9"
+		"fzaninotto/faker": "^1.9",
+		"endroid/qr-code": "^3.9",
+		"symfony/doctrine-bridge": "^5.1",
+		"symfony/serializer": "^5.1",
+		"setasign/fpdf": "^1.8",
+		"symfony/form": "^5.1",
+		"symfony/validator": "^5.1",
+		"egulias/email-validator": "^2.1",
+		"symfony/config": "^5.1",
+		"symfony/yaml": "^5.1",
+		"symfony/console": "^5.1",
+		"symfony/lock": "^5.1",
+		"symfony/process": "^5.1",
+		"symfony/http-foundation": "^5.1",
+		"symfony/mime": "^5.1",
+		"symfony/dependency-injection": "^5.1",
+		"endroid/qr-code-bundle": "^3.4"
 	},
 	"require-dev": {
 		"mikey179/vfsstream": "1.6.*",

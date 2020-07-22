@@ -25,7 +25,9 @@
                     </ul>
                   </div>
                   <div class="col-5 text-center">
-                    <img src="<?= base_url(); ?>/template/dist/img/user3-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
+                    <!-- <img src="<?= base_url(); ?>/template/dist/img/user3-128x128.jpg" alt="user-avatar" class="img-circle img-fluid"> -->
+                    <!-- <img src="<?= base_url('qrcode/inv-' . $u['id_users'] . '.png'); ?>" alt="<?= $u['nama']; ?>" class="img-circle img-fluid"> -->
+                    <img src="<?= base_url('qrcode/inv-' . $u['id_users'] . '.png'); ?>" alt="<?= $u['nama']; ?>" class="photo">
                   </div>
                 </div>
               </div>
@@ -34,7 +36,7 @@
                   <a href="#" class="btn btn-sm bg-teal">
                     <i class="fas fa-comments"></i>
                   </a>
-                  <a href="#" class="btn btn-sm btn-primary">
+                  <a href="<?= base_url('lakip/profile/' . $u['id_users']); ?>" class="btn btn-sm btn-primary">
                     <i class="fas fa-user"></i> View Profile
                   </a>
                 </div>
