@@ -40,6 +40,6 @@ function terbilang($nilai)
 
 ?>
 
-<p class="lead">
-  Terbilang : ###<?php echo ucwords(terbilang($users['level'])) . " Rupiah"; ?>###
-</p>
+<!-- <p class="lead">
+  Terbilang : ### echo ucwords(terbilang($users['level'])) . " Rupiah"; ###
+</p> -->

@@ -64,6 +64,7 @@
 
   <!-- My JS -->
   <script src="<?= base_url(); ?>/js/tabel.js"></script>
+  <script src="/js/main.js"></script>
 </body>
 
 </html>

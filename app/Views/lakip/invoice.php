@@ -1,53 +1,6 @@
-<?php
-function penyebut($nilai)
-{
-  $nilai = abs($nilai);
-  $huruf = array("", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas");
-  $temp = "";
-  if ($nilai < 12) {
-    $temp = " " . $huruf[$nilai];
-  } else if ($nilai < 20) {
-    $temp = penyebut($nilai - 10) . " belas";
-  } else if ($nilai < 100) {
-    $temp = penyebut($nilai / 10) . " puluh" . penyebut($nilai % 10);
-  } else if ($nilai < 200) {
-    $temp = " seratus" . penyebut($nilai - 100);
-  } else if ($nilai < 1000) {
-    $temp = penyebut($nilai / 100) . " ratus" . penyebut($nilai % 100);
-  } else if ($nilai < 2000) {
-    $temp = " seribu" . penyebut($nilai - 1000);
-  } else if ($nilai < 1000000) {
-    $temp = penyebut($nilai / 1000) . " ribu" . penyebut($nilai % 1000);
-  } else if ($nilai < 1000000000) {
-    $temp = penyebut($nilai / 1000000) . " juta" . penyebut($nilai % 1000000);
-  } else if ($nilai < 1000000000000) {
-    $temp = penyebut($nilai / 1000000000) . " milyar" . penyebut(fmod($nilai, 1000000000));
-  } else if ($nilai < 1000000000000000) {
-    $temp = penyebut($nilai / 1000000000000) . " trilyun" . penyebut(fmod($nilai, 1000000000000));
-  }
-  return $temp;
-}
-
-function terbilang($nilai)
-{
-  if ($nilai < 0) {
-    $hasil = "minus " . trim(penyebut($nilai));
-  } else {
-    $hasil = trim(penyebut($nilai));
-  }
-  return $hasil;
-};
-
-
-$array_bln  = array(1 => "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII");
-$bln    = $array_bln[date('n')];
-
-function rupiah($angka)
-{
-  $hasil_rupiah = "Rp " . number_format($angka, 2, ',', '.');
-  return $hasil_rupiah;
-};
-?>
+<?php include 'lib/romawi.php'; ?>
+<?php include 'lib/rupiah.php'; ?>
+<?php include 'lib/terbilang.php'; ?>
 <?= $this->extend('layout/template_print'); ?>
 <?= $this->section('content'); ?>
 <!-- Main content -->
@@ -194,6 +147,7 @@ function rupiah($angka)
             <p class="text-muted well well-sm shadow-none" style="margin-top: 10px;">
               "Dicetak otomatis oleh sistem elektronik dan tidak memerlukan tandatangan dan stempel basah, Untuk informasi dapat menghubungi bagian keuangan di 021-42885718".
             </p>
+
 
             <div class="col-sm-2 invoice-col">
               <img src="<?= base_url('qrcode/inv-' . $users['id_users'] . '.png'); ?>" style="width:80px" alt="<?= $users['nama']; ?>">
